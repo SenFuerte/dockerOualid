@@ -1,10 +1,7 @@
 from flask import Flask
 from flask import request
-import os, sys
+import os
 app = Flask(__name__)
-
-path = "./uploads/"
-dirs = os.listdir( path )
 
 
 @app.route("/")
@@ -20,8 +17,12 @@ def itRuns():
 
 @app.route("/list")
 def listfile():
-   for file in dirs:
-    return file
+   path = "./uploads/"
+   folder = os.listdir(path)
+   filelist = ""
+   for file in folder:
+   filelist += file + "/n"
+    return filelist
 
 
 @app.route('/upload', methods=['GET', 'POST'])
