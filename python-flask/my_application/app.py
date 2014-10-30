@@ -2,6 +2,10 @@ from flask import Flask
 from flask import request
 app = Flask(__name__)
 
+path = "./uploads/"
+dirs = os.listdir( path )
+
+
 @app.route("/")
 def hello():
     return "Hello World!"
@@ -11,6 +15,13 @@ def goodBye():
 
 def itRuns():
     return "It runs"
+
+
+@app.route("/list")
+def listfile():
+   for file in dirs:
+    return file
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
