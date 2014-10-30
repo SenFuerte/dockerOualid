@@ -21,7 +21,7 @@ def listfile():
    folder = os.listdir(path)
    filelist = ""
    for file in folder:
-   filelist += file + "/n"
+    filelist += file + "/n"
     return filelist
 
 
