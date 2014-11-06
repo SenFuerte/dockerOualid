@@ -7,12 +7,28 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Hello World!"
+@app.route("/euler1")
+def eulerOne():
+    n = 1000
+    result = 0
+    for x in range(1,n):
+	if( x % 3 == 0) or (x % 5 == 0):
+		result = result + x
+    return result
 
-def goodBye():
-    return "Good Bye World!"
+def fibbo(x):
+	if(x == 0):
+		return 0
+	elif x == 1:
+		return 1
+	else:
+		return (fibbo(x-1) + fibbo(x-2))
 
-def itRuns():
-    return "It runs"
+@app.route("/euler2")
+def eulerTwo():
+	for z in range(1,1000):
+		if( fibbo(z) >= 4000000:
+			return(z-1)
 
 
 @app.route("/list")
@@ -22,7 +38,7 @@ def listfile():
    filelist = ""
    for file in folder:
     filelist += file + "/n"
-    return filelist
+   return filelist
 
 
 @app.route('/upload', methods=['GET', 'POST'])
