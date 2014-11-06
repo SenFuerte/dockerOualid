@@ -14,7 +14,7 @@ def eulerOne():
     for x in range(1,n):
 	if( x % 3 == 0) or (x % 5 == 0):
 		result = result + x
-    return result
+    return str(result)
 
 def fibbo(x):
 	if(x == 0):
@@ -28,7 +28,7 @@ def fibbo(x):
 def eulerTwo():
 	for z in range(1,1000):
 		if( fibbo(z) >= 4000000):
-			return(z-1)
+			return str((z-1))
 
 
 @app.route("/list")
