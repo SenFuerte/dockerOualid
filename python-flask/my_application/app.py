@@ -27,7 +27,7 @@ def fibbo(x):
 @app.route("/euler2")
 def eulerTwo():
 	for z in range(1,1000):
-		if( fibbo(z) >= 4000000:
+		if( fibbo(z) >= 4000000):
 			return(z-1)
 
 
