@@ -44,7 +44,6 @@ def eulerTwo():
 
 @app.route('/createqueue/<queueName>')
 def create_Queue(queueName):
-    if request.method == 'POST':
         print "first"
         print queueName
         newQueue = conn.create_queue(queueName)
