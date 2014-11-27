@@ -1,6 +1,16 @@
 from flask import Flask
 from flask import request
 import os
+import boto.sqs
+import boto.sqs.queue
+from boto.sqs.message import Message
+from boto.sqs.connection import SQSConnection
+from boto.exception import SQSError
+
+                                #                               right A to fale B                                                       right g to false m  $
+conn = boto.sqs.connect_to_region("eu-west-1", aws_access_key_id='BKIAINXYPLZEZUALDFYQ', aws_secret_access_key='mqfZms2LJR39mi/W3eWBSGs0rD6dgfC9Q8lcCPRV')
+
+
 app = Flask(__name__)
 
 
@@ -29,6 +39,18 @@ def eulerTwo():
 	for z in range(1,1000):
 		if( fibbo(z) >= 4000000):
 			return str((z-1))
+
+
+
+@app.route('/createqueue/<queueName>')
+def create_Queue(queueName):
+    if request.method == 'POST':
+        print "first"
+        print queueName
+        newQueue = conn.create_queue(queueName)
+        return "Queue created"
+
+	
 
 
 @app.route("/list")
